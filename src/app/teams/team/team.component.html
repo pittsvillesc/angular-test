@@ -1,3 +1,20 @@
-<p>
-  team works!
-</p>
+<h1 class="display-4">Team Maintenance</h1>
+<form #form="ngForm" autocomplete="off" (submit)="submitForm(form)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.teamData.id">
+  <div class="form-group">
+    <input name="school" #school="ngModel" [(ngModel)]="service.teamData.school" class="form-control"
+      placeholder="School" required>
+    <!-- <div *ngIf="school.invalid && school.touched" class="validation-error">This field is required.</div> -->
+  </div>
+  <div class="form-group">
+    <input name="teamName" #teamName="ngModel" [(ngModel)]="service.teamData.teamName" class="form-control"
+      placeholder="Team Name">
+  </div>
+  <div class="form-group col-md-6">
+    <input name="abbreviation" #abbreviation="ngModel" [(ngModel)]="service.teamData.abbreviation" class="form-control"
+      placeholder="Abbrev.">
+  </div>
+  <div class="form-group">
+    <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block btn-info">SUBMIT</button>
+  </div>
+</form>
